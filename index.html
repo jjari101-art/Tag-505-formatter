@@ -124,13 +124,15 @@ button:active {
   </div>
 
   <label for="input">วางข้อความสารบัญ (1 บรรทัด = 1 รายการ)</label>
-  <textarea id="input" placeholder="บทที่ 1 ความรู้เบื้องต้น
+  <textarea id="input" placeholder="Ex.
+บทที่ 1 ความรู้เบื้องต้น
 บทที่ 2 ทฤษฎีที่เกี่ยวข้อง
 บทที่ 3 วิธีการทดลอง"></textarea>
 
   <div class="actions">
     <button class="primary" onclick="format505()">แปลงเป็น Tag 505</button>
     <button class="secondary" onclick="copyResult()">Copy</button>
+    <button class="secondary" onclick="resetAll()">Reset</button>
   </div>
 
   <div class="output-box" id="output"></div>
@@ -161,6 +163,15 @@ function copyResult() {
   if (!text) return;
 
   navigator.clipboard.writeText(text);
+}
+
+function resetAll() {
+  const input = document.getElementById("input");
+  const output = document.getElementById("output");
+
+  input.value = "";
+  output.innerText = "";
+  input.focus();
 }
 </script>
 
